@@ -1,0 +1,25 @@
+﻿@model IEnumerable<GetCategoriesToAllPRoductsResponse>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th> ID </th>
+            <th> Name </th>
+            <th> Your Products </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+        <tr>
+            <td> @category.CategoryId </td>
+            <td> @category.CategoryName </td>
+            <td>
+                 <a asp-controller="Report" asp-action="GetProductsByCategoryId" asp-route-id="@category.CategoryId" class="btn btn-success"> Products </a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

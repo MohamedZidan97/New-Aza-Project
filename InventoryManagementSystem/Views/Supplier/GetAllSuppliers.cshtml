@@ -1,0 +1,29 @@
+﻿@model IEnumerable<GetSuppliersResponse>
+@{
+    ViewData["Title"] = "Get All Suppliers";
+}
+<h2>Suppliers</h2>
+
+<a asp-action="AddSupplier" class="btn btn-primary">Add New Supplier</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var supplier in Model)
+        {
+            <tr>
+                <td>@supplier.SupplierId</td>
+                <td>@supplier.SupplierName</td>
+                <td>
+                    <a asp-controller="Supplier" asp-action="DetailsOfSupplier" asp-route-id="@supplier.SupplierId" class="btn btn-Primary">Details</a>
+                    <a asp-controller="Supplier" asp-action="DeleteSupplier" asp-route-id="@supplier.SupplierId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

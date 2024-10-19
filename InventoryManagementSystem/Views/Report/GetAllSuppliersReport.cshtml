@@ -1,0 +1,31 @@
+﻿@model IEnumerable<GetSuppliersResponse>
+
+@{
+    ViewData["Title"] = "GetAllSuppliersReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GetAllSuppliersReport</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Your Products</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var supplier in Model)
+        {
+            <tr>
+                <td>@supplier.SupplierId</td>
+                <td>@supplier.SupplierName</td>
+                <td>
+                    <a asp-controller="Report" asp-action="GetSupplierHasProductsReport" asp-route-id="@supplier.SupplierId" class="btn btn-success">Products</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

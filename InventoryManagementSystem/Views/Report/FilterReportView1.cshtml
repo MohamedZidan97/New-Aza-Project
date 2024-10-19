@@ -1,0 +1,50 @@
+﻿@model FilterReports
+
+@{
+    ViewData["Title"] = "Filter Reports";
+}
+
+<h2>Filter Reports</h2>
+
+<form asp-action="FilterReportView1" enctype="multipart/form-data" method="post">
+
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="SubCategoryId" class="control-label"></label>
+                    <select asp-for="SubCategoryId" class="form-control" asp-items="@(SelectList)ViewBag.SubCategories">
+                        <option value="">Select Subcategory</option>
+                    </select>
+                    <span asp-validation-for="SubCategoryId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="From">From Date</label>
+                    <input asp-for="From" class="form-control" type="date" />
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label  asp-for="To">To Date</label>
+                    <input asp-for="To" class="form-control" type="date" placeholder="To Date"/>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+
+                    <br />
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+ 
+
+ 
+    <br />
+    <br />
+</form>
